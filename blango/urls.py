@@ -22,4 +22,5 @@ urlpatterns = [
     path("", blog.views.index),
     path("bootstrap", blog.views.bootstrap),
     path('admin/', admin.site.urls),
+    path("post/<slug>/", blog.views.post_detail, name="blog-post-detail")
 ]
