@@ -120,6 +120,48 @@ class Dev(Configuration):
     ]
 
 
+    ADMINS = values.SingleNestedTupleValue([("Ben Shaw", "ben@example.com"), ("Leo Lucio","leo@example.com")])
+
+    def _require_debug_false(request):
+        from django.conf import settings
+        return not DEBUG
+
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "verbose": {
+                "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+                "style": "{",
+            },
+        },
+        'filters': {
+            'require_debug_false': {
+                '()': 'django.utils.log.CallbackFilter',
+                'callback': _require_debug_false
+            }
+        },
+        "handlers": {
+            "console": {"class": "logging.StreamHandler", "stream": "ext://sys.stdout", "formatter": "verbose"},
+            "mail_admins": {
+                "level": "ERROR",
+                "class": "django.utils.log.AdminEmailHandler",
+                "filters": ["require_debug_false"],
+            },
+        },
+        "loggers": {
+            "django.request": {
+                "handlers": ["mail_admins"],
+                "level": "ERROR",
+                "propagate": True,
+            },
+        },
+        "root": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+        }
+    }
+
     # Internationalization
     # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
