@@ -1,4 +1,5 @@
 django
+django[argon2]
 django-configurations 
 dj-database-url
 crispy-bootstrap5
