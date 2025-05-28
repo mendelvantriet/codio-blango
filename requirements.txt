@@ -1,6 +1,7 @@
 django
 django[argon2]
 django-configurations 
+django-debug-toolbar
 dj-database-url
 crispy-bootstrap5
 
