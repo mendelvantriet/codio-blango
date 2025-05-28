@@ -10,7 +10,6 @@ from blog.models import Post
 logger = logging.getLogger(__name__)
 
 
-# Create your views here.
 def index(request):
     logger.critical('CRIT!')
     posts = Post.objects.filter(published_at__lte=timezone.now())
