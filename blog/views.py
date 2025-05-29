@@ -2,6 +2,7 @@ import logging
 
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_protect
 
 from blog.forms import CommentForm
 from blog.models import Post
@@ -10,6 +11,7 @@ from blog.models import Post
 logger = logging.getLogger(__name__)
 
 
+#@csrf_protect # We need this because we disabled CsrfViewMiddleware, but we use a csrf_token in the view
 def index(request):
     logger.critical('CRIT!')
     posts = Post.objects.filter(published_at__lte=timezone.now()).select_related("author")
