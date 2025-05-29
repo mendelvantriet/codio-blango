@@ -49,12 +49,15 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        "blango_auth",
         'blog',
         "crispy_forms",
         "crispy_bootstrap5",
         "debug_toolbar",
     ]
 
+    AUTH_USER_MODEL = "blango_auth.User"
+    
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
     
