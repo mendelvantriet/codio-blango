@@ -54,6 +54,7 @@ class Dev(Configuration):
         "crispy_forms",
         "crispy_bootstrap5",
         "debug_toolbar",
+        "django_registration",
     ]
 
     AUTH_USER_MODEL = "blango_auth.User"
@@ -70,7 +71,7 @@ class Dev(Configuration):
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
     # Codio wont work with this setting
-    #    'django.middleware.csrf.CsrfViewMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
     # Codio wont work with this setting
@@ -108,6 +109,9 @@ class Dev(Configuration):
 #        }
 #    }
     DATABASES = values.DatabaseURLValue(f"sqlite:///{BASE_DIR}/db.sqlite3")
+    
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    ACCOUNT_ACTIVATION_DAYS = 7
 
     # Password validation
     # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
