@@ -55,6 +55,7 @@ class Dev(Configuration):
         "debug_toolbar",
         "django_registration",
         "rest_framework",
+        "rest_framework.authtoken",
     ]
 
     AUTH_USER_MODEL = "blango_auth.User"
@@ -98,6 +99,13 @@ class Dev(Configuration):
 
     WSGI_APPLICATION = 'blango.wsgi.application'
 
+    REST_FRAMEWORK = {
+        "DEFAULT_AUTHENTICATION_CLASSES": [
+            "rest_framework.authentication.BasicAuthentication",
+            "rest_framework.authentication.SessionAuthentication",
+            "rest_framework.authentication.TokenAuthentication",
+        ]
+    }
 
     # Database
     # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
