@@ -33,7 +33,6 @@ class Dev(Configuration):
     #ALLOWED_HOSTS = []
     ALLOWED_HOSTS = values.ListValue(["localhost", "0.0.0.0", ".codio.io"])
     X_FRAME_OPTIONS = 'ALLOW-FROM ' + os.environ.get('CODIO_HOSTNAME', 'codio.com') + '-8000.codio.io'
-    CSRF_COOKIE_SAMESITE = None
     CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('CODIO_HOSTNAME', 'codio.com') + '-8000.codio.io']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
@@ -55,6 +54,7 @@ class Dev(Configuration):
         "crispy_bootstrap5",
         "debug_toolbar",
         "django_registration",
+        "rest_framework",
     ]
 
     AUTH_USER_MODEL = "blango_auth.User"
