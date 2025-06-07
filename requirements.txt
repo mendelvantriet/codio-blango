@@ -6,3 +6,4 @@ django-debug-toolbar
 django-registration
 dj-database-url
 crispy-bootstrap5
+drf-yasg # swagger
