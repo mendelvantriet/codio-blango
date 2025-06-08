@@ -7,3 +7,4 @@ django-registration
 dj-database-url
 crispy-bootstrap5
 drf-yasg # swagger
+requests
