@@ -5,20 +5,34 @@ Practice material for the Coursera Specialization [Advanced Django](https://www.
 Topics covered in the first course:
 
 ```
-    2.7M    01-01-introduction-and-django-admin.pdf
-    602K    01-02-generic-relationships.pdf
-    4.6M    01-03-html-frameworks.pdf
-    2.3M    01-04-custom-filters.pdf
-    1.8M    01-05-custom-template-tags.pdf
-    862K    01-06-crispy-forms.pdf
-    114K    02-01-12-factor-apps.pdf
-    239K    02-02-django-configurations.pdf
-    163K    02-03-logging.pdf
-    534K    02-04-security-and-passwords.pdf
-     30K    02-05-production-hosting.pdf
-    1.1M    03-01-caching.pdf
-    3.3M    03-02-database-optimization.pdf
-    2.5M    04-01-custom-user-model.pdf
-    2.8M    04-02-django-registration.pdf
-    9.7M    04-03-django-allauth.pdf
+    01-01-introduction-and-django-admin.pdf
+    01-02-generic-relationships.pdf
+    01-03-html-frameworks.pdf
+    01-04-custom-filters.pdf
+    01-05-custom-template-tags.pdf
+    01-06-crispy-forms.pdf
+    02-01-12-factor-apps.pdf
+    02-02-django-configurations.pdf
+    02-03-logging.pdf
+    02-04-security-and-passwords.pdf
+    02-05-production-hosting.pdf
+    03-01-caching.pdf
+    03-02-database-optimization.pdf
+    04-01-custom-user-model.pdf
+    04-02-django-registration.pdf
+    04-03-django-allauth.pdf
+```
+Topics covered in the second course:
+```
+    01-01-intro-to-rest-apis.pdf
+    01-02-first-party-django-rest-api.pdf
+    01-03-postman.pdf
+    02-01-serializers.pdf
+    02-02-views.pdf
+    03-01-authentication.pdf
+    03-02-permissions.pdf
+    03-03-related-fields.pdf
+    03-04-nested-relationships.pdf
+    04-01-browsable-api.pdf
+    04-02-viewsets---routers.pdf
 ```
