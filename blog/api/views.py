@@ -5,6 +5,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework import generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.throttling import ScopedRateThrottle
 
 from blango_auth.models import User
 from blog.api.serializers import PostDetailSerializer, PostSerializer, UserSerializer, TagSerializer
@@ -27,6 +28,8 @@ class UserDetail(generics.RetrieveAPIView):
     lookup_field = "email"
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "user_api"
 
     @method_decorator(cache_page(300))
     def get(self, *args, **kwargs):
@@ -57,6 +60,8 @@ class TagViewSet(viewsets.ModelViewSet):
 class PostViewSet(viewsets.ModelViewSet):
     permission_classes = [AuthorModifyOrReadOnly | IsAdminUserForObject]
     queryset = Post.objects.all()
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "post_api"
 
     def get_serializer_class(self):
         if self.action in ("list", "create"):
