@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from datetime import timedelta
 import os
 from pathlib import Path
 from configurations import Configuration, values
@@ -106,6 +107,7 @@ class Dev(Configuration):
             "rest_framework.authentication.BasicAuthentication",
             "rest_framework.authentication.SessionAuthentication",
             "rest_framework.authentication.TokenAuthentication",
+            "rest_framework_simplejwt.authentication.JWTAuthentication",
         ],
         "DEFAULT_PERMISSION_CLASSES": [
             "rest_framework.permissions.IsAuthenticatedOrReadOnly",
@@ -130,6 +132,12 @@ class Dev(Configuration):
             "django_filters.rest_framework.DjangoFilterBackend",
             "rest_framework.filters.OrderingFilter",
         ],
+    }
+
+    SIMPLE_JWT = {
+        "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+        "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+        "SIGNING_KEY": "59*&ghj*78r6rFgFfr%4^TUYgGu5&^fTd^%RuyGjhGO8",
     }
 
     SWAGGER_SETTINGS = {

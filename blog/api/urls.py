@@ -1,6 +1,7 @@
 import os
 
 from django.urls import path, include, re_path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.authtoken import views
@@ -33,6 +34,8 @@ urlpatterns = format_suffix_patterns(urlpatterns)
 urlpatterns += [
     path("auth/", include("rest_framework.urls")),
     path("token-auth/", views.obtain_auth_token),
+    path("jwt/", TokenObtainPairView.as_view(), name="jwt_obtain_pair"),
+    path("jwt/refresh/", TokenRefreshView.as_view(), name="jwt_refresh"),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),
