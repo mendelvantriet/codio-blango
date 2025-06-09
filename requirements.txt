@@ -3,6 +3,7 @@ djangorestframework
 django[argon2]
 django-configurations 
 django-debug-toolbar
+django-filter
 django-registration
 dj-database-url
 crispy-bootstrap5
