@@ -59,6 +59,7 @@ class Dev(Configuration):
         "rest_framework.authtoken",
         "drf_yasg",
         "django_filters",
+        "versatileimagefield",
     ]
 
     AUTH_USER_MODEL = "blango_auth.User"
@@ -157,7 +158,10 @@ class Dev(Configuration):
 #        }
 #    }
     DATABASES = values.DatabaseURLValue(f"sqlite:///{BASE_DIR}/db.sqlite3")
-    
+
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
+
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     ACCOUNT_ACTIVATION_DAYS = 7
 

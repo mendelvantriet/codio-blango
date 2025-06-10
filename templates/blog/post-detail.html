@@ -4,16 +4,23 @@
 {% block content %}
 
 <h2>{{ post.title }}</h2>
-<div class="row">
-    <div class="col">
-    {% include "blog/post-byline.html" %}
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-    {{ post.content|safe }}
-    </div>
-</div>
+{% row %}
+    {% col %}
+        {% include "blog/post-byline.html" %}
+        {% if post.hero_image %}
+            {% row %}
+                {% col %}
+                    <img class="img-fluid" src="{{ post.hero_image.url }}">
+                {% endcol %}
+            {% endrow %}
+        {% endif %}
+    {% endcol %}
+{% endrow %}
+{% row %}
+    {% col %}
+        {{ post.content|safe }}
+    {% endcol %}
+{% endrow %}
 
 {% if post.author.profile %}
     {% row %}
@@ -27,11 +34,11 @@
 {% include "blog/post-comments.html" %}
 
 {% row %}
-    <div class="col">
+    {% col %}
         {% cache 3600 recent_posts post %}
             {% recent_posts post %}
         {% endcache %}
-    </div>
+    {% endcol %}
 {% endrow %}
 
 {% endblock %}

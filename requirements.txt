@@ -10,3 +10,4 @@ crispy-bootstrap5
 drf-yasg # swagger
 requests
 djangorestframework-simplejwt
+django-versatileimagefield
