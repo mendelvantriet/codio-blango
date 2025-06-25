@@ -2,6 +2,7 @@ import logging
 
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_protect
 
 from blog.forms import CommentForm
@@ -39,7 +40,11 @@ def post_detail(request, slug):
     return render(request, "blog/post-detail.html", {"post": post, "comment_form": comment_form})
 
 def post_table(request):
-    return render(request, "blog/post-table.html")
+    return render(
+        request,
+        "blog/post-table.html",
+        {"post_list_url": reverse("post-list")},
+    )
 
 def get_ip(request):
     from django.http import HttpResponse
